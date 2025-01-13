@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #22262A;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-size: 14px;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .custom-flex {
+    @apply flex items-center
+  }
+}
