@@ -81,7 +81,7 @@ const SellerCards = ({ selectedTab }: Props) => {
         {productData?.map((item) => {
           const validImage = isValidImage(item.images[0]);
           return (
-            <Card key={item.id} className="max-w-sm">
+            <Card key={item.id} className="max-w-sm overflow-hidden">
               <div className='cursor-pointer relative group'>
                 {validImage ? (
                   <Image
