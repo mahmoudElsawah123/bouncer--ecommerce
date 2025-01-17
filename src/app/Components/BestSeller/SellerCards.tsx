@@ -6,6 +6,7 @@ import { Rating, RatingStar } from "flowbite-react";
 import { TiShoppingCart } from "react-icons/ti";
 import { MdFavoriteBorder } from "react-icons/md";
 import ImageNotAvaliable from '@/app/assets/Image_not_available.png'
+import Link from 'next/link';
 type Props = {
   selectedTab: number | null;
 };
@@ -71,7 +72,7 @@ const SellerCards = ({ selectedTab }: Props) => {
   );
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className='h-[200px] w-full flex justify-center items-center'>Loading...</div>;
   }
 
   return (
@@ -108,11 +109,11 @@ const SellerCards = ({ selectedTab }: Props) => {
                   </div>
                 </div>
               </div>
-              <a href="#">
-                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-1">
+              <Link href={`/product/${item.id}/${item.title.replace(/[\s\"\'\"]/g, '-')}`}>
+                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-1 hover:text-secondary transition-all">
                   {item.title}
                 </h5>
-              </a>
+              </Link>
               <div className="mb-5 mt-2.5 flex items-center">
                 {StarRating(5)}
                 <span className="ml-3 mr-2 rounded bg-secondary px-2.5 py-0.5 text-xs font-semibold text-white">
@@ -120,7 +121,7 @@ const SellerCards = ({ selectedTab }: Props) => {
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-2xl font-bold text-gray-900">{item.price}</span>
+                <span className="text-2xl font-bold text-gray-900">${item.price}</span>
                 <div className='flex justify-center items-center gap-2'>
                   <MdFavoriteBorder className='text-[30px] cursor-pointer' />
                   <TiShoppingCart className='text-[30px] cursor-pointer' />

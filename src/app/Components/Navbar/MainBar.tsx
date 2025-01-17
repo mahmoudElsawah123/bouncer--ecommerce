@@ -38,7 +38,7 @@ const MainBar = () => {
           <NavbarLink href="/" aria-label="Home">
             Home
           </NavbarLink>
-          <NavbarLink aria-haspopup="true" aria-expanded="false">
+          <NavbarLink href="#" aria-haspopup="true" aria-expanded="false">
             
             <MegaMenuDropdownToggle aria-label="Store dropdown">
               

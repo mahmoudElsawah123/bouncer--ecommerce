@@ -7,13 +7,11 @@
   --foreground: #22262A;
 }
 
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 
 body {
   color: var(--foreground);
@@ -22,6 +20,25 @@ body {
   font-weight: 400;
   overflow-x: hidden;
 }
+button:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+a{
+  transition: 0.5s ease-in-out ;
+}
+a:hover{
+  color: #33A0FF !important; 
+}
+
+.BreadcrumbItem a{
+  color: #33A0FF;
+}
+.BreadcrumbItem a:hover{
+  color: var(--foreground) !important;
+}
+
 
 @layer components {
   .custom-flex {
