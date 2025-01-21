@@ -2,12 +2,20 @@
 import { Dropdown } from "flowbite-react";
 import { FaRegUser } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
-import React from 'react'
+import React from "react";
 import Link from "next/link";
+import { useAppSelector } from "@/app/redux/Hooks";
+
+interface CartData {
+  num: number;
+  price: number;
+}
 
 const TopBar = () => {
+  const data: CartData = useAppSelector((state) => state.tabSlice.cartData);
+
   return (
-    <div className='container py-sm'>
+    <div className="container py-sm">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-[20px]">
           <Dropdown label="EN" inline>
@@ -19,16 +27,25 @@ const TopBar = () => {
             <Dropdown.Item aria-label="Switch to EGP">EGP</Dropdown.Item>
           </Dropdown>
         </div>
+
         <div className="flex items-center gap-10">
           <div>
-            <Link href={'/profile'} className="flex items-center gap-1 font-semibold" aria-label="Go to My Profile">
+            <Link
+              href="/profile"
+              className="flex items-center gap-1 font-semibold"
+              aria-label="Go to My Profile"
+            >
               <FaRegUser aria-hidden="true" />
               My profile
             </Link>
           </div>
           <div>
-            <Link href={'/cart'} className="flex items-center gap-1 font-semibold" aria-label="Go to Cart">
-              0 items <span className="opacity-[50%]">$0.00</span>
+            <Link
+              href="/cart"
+              className="flex items-center gap-1 font-semibold"
+              aria-label="Go to Cart"
+            >
+              {data.num} items <span className="opacity-[50%]">${data.price}</span>
             </Link>
           </div>
           <div>
@@ -38,6 +55,6 @@ const TopBar = () => {
       </div>
     </div>
   );
-}
+};
 
 export default TopBar;

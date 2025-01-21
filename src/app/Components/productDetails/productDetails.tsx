@@ -16,7 +16,7 @@ type Props = {
 const ProductDetails = ({ data }: Props) => {
   return (
     <div className="flex items-start gap-5 flex-col md:flex-row">
-      <div className="grid md:grid-cols-[1fr_2fr] md:justify-start justify-items-center  items-start  gap-8 flex-1">
+      <div className="grid md:grid-cols-[auto_1fr] md:justify-start justify-items-center  items-start  gap-8 flex-1">
         <ProductImage data={data.images} />
         <ProductContent data={data} />
         <div className="md:col-span-2">

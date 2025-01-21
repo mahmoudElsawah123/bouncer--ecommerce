@@ -59,7 +59,7 @@ const ProductContent = ({ data }: Props) => {
         </div>
       </div>
       <div className="border-t-[3px] border-[#F6F7F8] w-full"></div>
-       <ProductOrder />
+       <ProductOrder data={data}/>
       <div className="border-t-[3px] border-[#F6F7F8] w-full"></div>
       <div className="flex items-center gap-3 w-full justify-end">
       <Button color="light" className="bg-[#385C8E] text-white line-clamp-1">

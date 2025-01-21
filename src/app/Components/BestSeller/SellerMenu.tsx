@@ -1,8 +1,6 @@
 "use client";
 import React, { memo, useEffect, useState } from "react";
 import SellerCards from "./SellerCards";
-// import { useDispatch } from "react-redux";
-// import { handleTabId } from "@/app/redux/TabSlice";
 
 type Category = {
   id: number;
@@ -16,14 +14,9 @@ type Props = {
 // eslint-disable-next-line react/display-name
 const SellerMenu: React.FC<Props> = memo(({ Category }) => {
   const [selectedTab, setSelectedTab] = useState<number | null>(1);
-  // const dispatch = useDispatch();
   useEffect(() => {
     setSelectedTab(Category.length > 0 ? Category[0].id : null);
   }, [Category]);
-  // useEffect(() => {
-  //   dispatch(handleTabId(selectedTab));
-  // }, [dispatch, selectedTab]);
-
   return (
     <div>
       <h3 className="text-h3 font-semibold text-center">BEST SELLER</h3>

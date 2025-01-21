@@ -20,7 +20,6 @@ const BestSellerComponent = async() => {
   })
   const category = await getBestCategory.json();
   const CategoryData = category.data?.categories
-
   return (
     <div className='container pt-lg pb-sm'>
       <SellerMenu Category={CategoryData}/>

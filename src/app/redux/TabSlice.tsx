@@ -2,11 +2,17 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from './Store';
 
 export interface tab {
-  value: number
+  cartData: {
+    num : number,
+    price : number
+  }
 }
 
 const initialState: tab = {
-  value : 1
+  cartData : {
+    num : 0,
+    price : 0.00
+  }
 }
 
 const tabSlice = createSlice({
@@ -14,12 +20,12 @@ const tabSlice = createSlice({
   initialState,
   reducers: {
     handleTabId: (state, action) => {
-      state.value = action.payload;
+      state.cartData = action.payload
     }
   }
 });
 
 export const { handleTabId } = tabSlice.actions;
-export const selectTab = (state: RootState) => state.tabSlice.value
+export const selectTab = (state: RootState) => state.tabSlice.cartData
 
 export default tabSlice.reducer;

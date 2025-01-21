@@ -7,6 +7,7 @@ import { TiShoppingCart } from "react-icons/ti";
 import { MdFavoriteBorder } from "react-icons/md";
 import ImageNotAvaliable from '@/app/assets/Image_not_available.png'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 type Props = {
   selectedTab: number | null;
 };
@@ -20,6 +21,7 @@ interface Product {
 }
 
 const SellerCards = ({ selectedTab }: Props) => {
+  const router = useRouter()
   const [productData, setProductData] = useState<Product[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -84,7 +86,7 @@ const SellerCards = ({ selectedTab }: Props) => {
             <Card key={item.id} className="max-w-sm overflow-hidden">
               <div className='cursor-pointer relative group'>
                 {validImage ? (
-                  <Image
+                  <Image onClick={()=> router.push(`/product/${item.id}/${item.title.replace(/[\s\"\'\"]/g, '-')}`)}
                     src={item.images[0]}
                     alt="card image"
                     width={200}
@@ -100,14 +102,14 @@ const SellerCards = ({ selectedTab }: Props) => {
                     className='group-hover:opacity-[25%] duration-300 w-full h-full'
                   />
                 )}
-                <div className='opacity-0 group-hover:opacity-100 absolute top-0 left-0 w-full h-full flex items-center justify-center gap-5 duration-300'>
+                {/* <div className='opacity-0 group-hover:opacity-100 absolute top-0 left-0 w-full h-full flex items-center justify-center gap-5 duration-300'>
                   <div className='w-12 h-12 flex items-center justify-center rounded-full border-2 border-secondary text-white cursor-pointer'>
                     <MdFavoriteBorder className='text-2xl text-secondary' />
                   </div>
                   <div className='w-12 h-12 flex items-center justify-center rounded-full border-2 border-secondary text-white cursor-pointer'>
                     <TiShoppingCart className='text-2xl text-secondary' />
                   </div>
-                </div>
+                </div> */}
               </div>
               <Link href={`/product/${item.id}/${item.title.replace(/[\s\"\'\"]/g, '-')}`}>
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-1 hover:text-secondary transition-all">
@@ -122,7 +124,7 @@ const SellerCards = ({ selectedTab }: Props) => {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-2xl font-bold text-gray-900">${item.price}</span>
-                <div className='flex justify-center items-center gap-2'>
+                <div className='flex justify-center items-center gap-2' onClick={()=> router.push(`/product/${item.id}/${item.title.replace(/[\s\"\'\"]/g, '-')}`)}>
                   <MdFavoriteBorder className='text-[30px] cursor-pointer' />
                   <TiShoppingCart className='text-[30px] cursor-pointer' />
                 </div>

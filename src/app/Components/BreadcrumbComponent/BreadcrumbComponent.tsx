@@ -1,10 +1,11 @@
 import { Breadcrumb, BreadcrumbItem } from "flowbite-react";
 
 type Props = {
-  slug: [id: number, cat: string, title: string];
+  slug: [id: number, cat: string, title: string],
 };
 
-export default function BreadcrumbComponent({ slug }: Props) {
+export default function BreadcrumbComponent({ slug}: Props) {
+
   return (
     <div className="container">
       <Breadcrumb
