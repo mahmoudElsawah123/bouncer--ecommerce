@@ -17,7 +17,7 @@ const TopBar = () => {
   return (
     <div className="container py-sm">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-[20px]">
+        <div className="hidden md:flex items-center gap-[20px]">
           <Dropdown label="EN" inline>
             <Dropdown.Item aria-label="Switch to English">English</Dropdown.Item>
             <Dropdown.Item aria-label="Switch to Arabic">Arabic</Dropdown.Item>
@@ -29,7 +29,7 @@ const TopBar = () => {
         </div>
 
         <div className="flex items-center gap-10">
-          <div>
+          <div className="hidden md:block">
             <Link
               href="/profile"
               className="flex items-center gap-1 font-semibold"
